@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Custdat.
+    -->
+    <changeSet id="20240911140712-1" author="jhipster">
+        <createTable tableName="custdat">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="custdat_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cust_id" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="cust_first_name" type="varchar(25)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cust_middle_name" type="varchar(25)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cust_last_name" type="varchar(25)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cust_addr_line_1" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cust_addr_line_2" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cust_addr_line_3" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cust_addr_state_cd" type="varchar(2)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cust_addr_country_cd" type="varchar(3)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cust_addr_zip" type="varchar(10)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cust_phone_num_1" type="varchar(15)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cust_phone_num_2" type="varchar(15)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cust_ssn" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="cust_govt_issued_id" type="varchar(20)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cust_dob_yyyy_mm_dd" type="varchar(10)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cust_eft_account_id" type="varchar(10)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cust_pri_card_holder_ind" type="varchar(1)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cust_fico_credit_score" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="filler" type="varchar(168)">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20240911140712-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/custdat.csv"
+                  separator=";"
+                  tableName="custdat">
+            <column name="id" type="numeric"/>
+            <column name="custdat_id" type="numeric"/>
+            <column name="cust_id" type="numeric"/>
+            <column name="cust_first_name" type="string"/>
+            <column name="cust_middle_name" type="string"/>
+            <column name="cust_last_name" type="string"/>
+            <column name="cust_addr_line_1" type="string"/>
+            <column name="cust_addr_line_2" type="string"/>
+            <column name="cust_addr_line_3" type="string"/>
+            <column name="cust_addr_state_cd" type="string"/>
+            <column name="cust_addr_country_cd" type="string"/>
+            <column name="cust_addr_zip" type="string"/>
+            <column name="cust_phone_num_1" type="string"/>
+            <column name="cust_phone_num_2" type="string"/>
+            <column name="cust_ssn" type="numeric"/>
+            <column name="cust_govt_issued_id" type="string"/>
+            <column name="cust_dob_yyyy_mm_dd" type="string"/>
+            <column name="cust_eft_account_id" type="string"/>
+            <column name="cust_pri_card_holder_ind" type="string"/>
+            <column name="cust_fico_credit_score" type="numeric"/>
+            <column name="filler" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>
