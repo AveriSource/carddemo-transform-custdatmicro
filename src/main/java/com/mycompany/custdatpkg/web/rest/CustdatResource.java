@@ -211,7 +211,12 @@ public class CustdatResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of custdats in body.
      */
     @GetMapping("/custdats")
-    public ResponseEntity<List<Custdat>> getAllCustdats(Pageable pageable) {
+    public ResponseEntity<List<Custdat>> getAllCustdats(@RequestParam(name = "custId", required = false) Integer custId, Pageable pageable) {
+        if(custId != null) {
+            log.debug("REST request to get a list of Custdats by custId");
+            List<Custdat> custdats = custdatRepository.findByCustId(custId);
+            return ResponseEntity.ok().body(custdats);
+        }
         log.debug("REST request to get a page of Custdats");
         Page<Custdat> page = custdatRepository.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
